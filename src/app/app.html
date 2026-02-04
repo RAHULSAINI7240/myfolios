@@ -1,0 +1,16 @@
+<div class="app-container">
+  @if (loading()) {
+  <div class="preloader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <h1>Loading...</h1>
+    </div>
+  </div>
+  }
+
+  <app-navbar></app-navbar>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+</div>

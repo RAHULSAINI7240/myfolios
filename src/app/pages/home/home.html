@@ -1,0 +1,122 @@
+<div id="home" class="hero-section" appScrollReveal>
+    <!-- <img src="./../../../assets/Animation/About us.png" alt=""> -->
+    <!-- <img src="https://lottie.host/d1e48b17-b4b6-4876-9a9c-d8e617b5de15/Us9BIYnnL6.lottie" alt=""> -->
+    <!-- <video src="../../../assets/Animation/About us.mp4" controls></video> -->
+
+    <div class="home-container">
+        <div class="text-section">
+            <div class="hero-content">
+                <!-- <video src="assets/Animation/dev_worj.mp4" autoplay loop muted playsinline
+                    style="width: 100%; max-width: 500px;">
+                </video> -->
+
+
+                <h1>HI, SCRIPT KIDDES HERE</h1>
+                <h2>DEV GROUP</h2>
+                <p>A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile
+                    applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and
+                    frameworks.</p>
+                <div class="hero-actions">
+                    <button mat-raised-button color="primary" routerLink="/" fragment="projects">View My Work</button>
+                    <button mat-stroked-button color="accent" routerLink="/" fragment="contact">Contact Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="animation-section">
+            <video #videoPlayer src="/assets/Animation/dev_worj.mp4" autoplay loop [muted]="true" playsinline
+                style="height: 500px; width: 500px; object-fit: cover;"></video>
+        </div>
+    </div>
+</div>
+
+<section class="what-i-do-section" appScrollReveal>
+    <div class="what-i-do-container">
+        <div class="what-i-do-image">
+            <img src="assets/Animation/companyAnimation.gif" alt="Full Stack Developer">
+        </div>
+        <div class="what-i-do-content">
+            <h1>What I do</h1>
+            <h3>CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK</h3>
+
+            <div class="skills-grid">
+                @for (skill of skills; track skill.name) {
+                <div class="skill-item">
+                    <img [src]="skill.icon" [alt]="skill.name" [title]="skill.name">
+                    <p>{{ skill.name }}</p>
+                </div>
+                }
+            </div>
+
+            <ul class="duties-list">
+                <li>⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications
+                </li>
+                <li>⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks</li>
+                <li>⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="proficiency-section" appScrollReveal>
+    <div class="proficiency-container">
+        <div class="proficiency-content">
+            <h1>Proficiency</h1>
+
+            <div class="proficiency-bars">
+                @for (item of proficiency; track item.name) {
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>{{ item.name }}</span>
+                        <span>{{ item.value }}%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" [style.width.%]="item.value"></div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="proficiency-image">
+            <img src="assets/Animation/lottie-animation.gif" alt="Proficiency">
+        </div>
+    </div>
+</section>
+
+<section id="about" appScrollReveal>
+    <app-about></app-about>
+</section>
+
+<section id="projects">
+    <app-projects></app-projects>
+</section>
+
+
+
+<section class="experience-section" id="experience" appScrollReveal>
+    <div class="experience-container">
+        <h1>Experiences</h1>
+        <div class="experience-grid">
+            @for (exp of experiences; track exp.company) {
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="company-logo">
+                        <img [src]="exp.logo" [alt]="exp.company">
+                    </div>
+                    <div class="company-info">
+                        <h2>{{ exp.role }}</h2>
+                        <h3>{{ exp.company }}</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="period">{{ exp.period }}</p>
+                    <p class="description">{{ exp.description }}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="contact" appScrollReveal>
+    <app-contact></app-contact>
+</section>
