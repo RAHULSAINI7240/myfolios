@@ -1,5 +1,7 @@
 # Portfolio
 
+Live url -> https://698312864171e375d13afe1e--rahulsainibuild.netlify.app/
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
 
 ## Development server
