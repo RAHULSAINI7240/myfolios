@@ -1,9 +1,16 @@
-<mat-toolbar color="primary">
-    <span>Kiddie's Creations</span>
-    <span class="spacer"></span>
-    <button mat-button routerLink="/" fragment="home">Home</button>
-    <button mat-button routerLink="/" fragment="about">About</button>
-    <button mat-button routerLink="/" fragment="projects">Projects</button>
-    <button mat-button routerLink="/" fragment="experience">Experience</button>
-    <button mat-button routerLink="/" fragment="contact">Contact</button>
-</mat-toolbar>
+<nav class="dynamic-header">
+    <div class="island-container">
+        <a routerLink="/" fragment="home" class="brand-logo" routerLinkActive="active">
+            <span class="logo-text">KC</span>
+        </a>
+
+        <div class="nav-links">
+            <a routerLink="/" fragment="home" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a routerLink="/" fragment="about" routerLinkActive="active">About</a>
+            <a routerLink="/" fragment="projects" routerLinkActive="active">Projects</a>
+            <a routerLink="/" fragment="experience" routerLinkActive="active">Exp</a>
+            <a routerLink="/" fragment="contact" routerLinkActive="active" class="contact-btn">Contact</a>
+        </div>
+    </div>
+</nav>
