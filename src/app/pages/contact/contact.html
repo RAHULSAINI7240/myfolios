@@ -1,33 +1,56 @@
-<div class="container margin-top">
+<div class="container margin-top" appScrollReveal>
     <h1>Contact Me</h1>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-        <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-            @if (contactForm.get('name')?.hasError('required')) {
-            <mat-error>Name is required</mat-error>
-            }
-        </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-            @if (contactForm.get('email')?.hasError('email')) {
-            <mat-error>Please enter a valid email address</mat-error>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" placeholder="Your Name">
+            @if (contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched) {
+            <span class="error-message">Name is required</span>
             }
-            @if (contactForm.get('email')?.hasError('required')) {
-            <mat-error>Email is required</mat-error>
-            }
-        </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Message</mat-label>
-            <textarea matInput formControlName="message" rows="5"></textarea>
-            @if (contactForm.get('message')?.hasError('required')) {
-            <mat-error>Message is required</mat-error>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="your.email@example.com">
+            @if (contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched) {
+            <span class="error-message">Email is required</span>
+            } @else if (contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched) {
+            <span class="error-message">Please enter a valid email address</span>
             }
-        </mat-form-field>
+        </div>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Send Message</button>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" formControlName="message" placeholder="How can I help you?"></textarea>
+            @if (contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched) {
+            <span class="error-message">Message is required</span>
+            }
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Send Message</button>
     </form>
 </div>
+
+<mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    @if (contactForm.get('email')?.hasError('email')) {
+    <mat-error>Please enter a valid email address</mat-error>
+    }
+    @if (contactForm.get('email')?.hasError('required')) {
+    <mat-error>Email is required</mat-error>
+    }
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Message</mat-label>
+    <textarea matInput formControlName="message" rows="5"></textarea>
+    @if (contactForm.get('message')?.hasError('required')) {
+    <mat-error>Message is required</mat-error>
+    }
+</mat-form-field>
+
+<button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Send Message</button>
+<!-- </form> -->
+<!-- </div> -->
