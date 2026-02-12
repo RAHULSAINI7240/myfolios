@@ -2,6 +2,10 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+
+    @media (max-width: 480px) {
+        padding: 1rem;
+    }
 }
 
 .margin-top {
@@ -13,8 +17,20 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .project-card {
-    max-width: 400px;
+    max-width: 100%; // Allow full width
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+        height: 200px;
+        object-fit: cover;
+    }
 }
