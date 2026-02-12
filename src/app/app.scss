@@ -4,8 +4,67 @@
     min-height: 100vh;
 }
 
+// Global Container
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+}
+
 .content {
     flex: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; // Base size
+
+    @media (max-width: 1024px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 13px;
+    }
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+
+    &:hover {
+        background: #555;
+    }
+}
+
+// Reveal Animation Classes
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 // Preloader Styles
