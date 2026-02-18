@@ -1,4 +1,4 @@
-<div id="home" class="hero-section" appScrollReveal>
+<div id="home" class="hero-section">
     <!-- <img src="./../../../assets/Animation/About us.png" alt=""> -->
     <!-- <img src="https://lottie.host/d1e48b17-b4b6-4876-9a9c-d8e617b5de15/Us9BIYnnL6.lottie" alt=""> -->
     <!-- <video src="../../../assets/Animation/About us.mp4" controls></video> -->
@@ -17,14 +17,42 @@
                     applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and
                     frameworks.</p>
                 <div class="hero-actions">
-                    <button mat-raised-button color="primary" routerLink="/" fragment="projects">View My Work</button>
-                    <button mat-stroked-button color="accent" routerLink="/" fragment="contact">Contact Me</button>
+                    <button mat-raised-button color="primary" class="cv-download-btn"
+                        [class.downloading]="isDownloading" [class.complete]="downloadComplete"
+                        [disabled]="isDownloading || downloadComplete" (click)="downloadCV()">
+                        <span class="btn-text">Download My CV</span>
+                        @if (isDownloading) {
+                        <svg class="progress-ring" width="32" height="32">
+                            <circle class="progress-ring__circle" stroke-width="3" fill="transparent" r="14" cx="16"
+                                cy="16" />
+                        </svg>
+                        }
+                        @if (downloadComplete) {
+                        <svg class="checkmark-svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path class="checkmark-path" fill="none" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        }
+                    </button>
+                    <button mat-stroked-button color="accent" routerLink="/" fragment="contact"
+                        class="cv-download-btn">Contact Me</button>
+
+                    <div class="social-links">
+                        @for (link of socialLinks; track link.name) {
+                        <a [href]="link.url" target="_blank" [title]="link.name" class="social-icon">
+                            <img [src]="link.icon" [alt]="link.name">
+                        </a>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
         <div class="animation-section">
-            <video #videoPlayer src="/assets/Animation/dev_worj.mp4" autoplay loop [muted]="true" playsinline
-                class="hero-video"></video>
+            <!-- <video #videoPlayer src="/assets/Animation/dev_worj.mp4" autoplay loop [muted]="true" playsinline
+                class="hero-video"></video> -->
+
+            <div class="lottie-container">
+                <ng-lottie [options]="animationOptions"></ng-lottie>
+            </div>
         </div>
     </div>
 </div>
@@ -100,7 +128,7 @@
             <div class="experience-card">
                 <div class="card-header">
                     <div class="company-logo">
-                        <img [src]="exp.logo" [alt]="exp.company">
+                        <img src="../../../assets/Image/autovyn logo.png" [alt]="exp.company">
                     </div>
                     <div class="company-info">
                         <h2>{{ exp.role }}</h2>
