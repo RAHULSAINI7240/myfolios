@@ -7,18 +7,54 @@ import { Projects } from '../projects/projects';
 import { Contact } from '../contact/contact';
 
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 
 @Component({
   selector: 'app-home',
-  imports: [MatButtonModule, RouterModule, About, Projects, Contact, ScrollRevealDirective],
+  imports: [MatButtonModule, RouterModule, About, Projects, Contact, ScrollRevealDirective, LottieComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home implements AfterViewInit {
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
 
+  isDownloading = false;
+  downloadComplete = false;
+
+  socialLinks = [
+    { name: 'Github', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', url: 'https://github.com/RAHULSAINI7240' },
+    { name: 'LinkedIn', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg', url: 'https://www.linkedin.com/in/rahulsaini7240' },
+    { name: 'Instagram', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/instagram.svg', url: 'https://www.instagram.com/rahul.saini_7240' },
+    { name: 'Facebook', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg', url: 'https://www.facebook.com/saini.sab.737?rdid=rWdpfZm3Jr1kTLmw&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HTLHrqvdL%2F#' },
+    { name: 'Mail', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/gmail.svg', url: 'mailto:rahulsaini72407@gmail.com' }
+  ];
+
+  downloadCV() {
+    this.isDownloading = true;
+    this.downloadComplete = false;
+
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = 'assets/Resume/RAHUL-SAINI-Resume.pdf';
+      link.download = 'Rahul-Saini-Resume.pdf';
+      link.click();
+
+      this.isDownloading = false;
+      this.downloadComplete = true;
+
+      setTimeout(() => {
+        this.downloadComplete = false;
+      }, 1000); // Show checkmark for 1s then revert
+    }, 1000); // Match CSS progress animation duration
+  }
+
   videoUrl = 'assets/Animation/dev_worj.mp4';
 
+  animationOptions = {
+    path: 'assets/Animation/developer_animation.json',
+    loop: true,
+    autoplay: true
+  };
 
   skills = [
     { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
