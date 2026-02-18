@@ -33,8 +33,7 @@
                         </svg>
                         }
                     </button>
-                    <button mat-stroked-button color="accent" routerLink="/" fragment="contact"
-                        class="cv-download-btn">Contact Me</button>
+                    <button mat-stroked-button color="accent" routerLink="/" fragment="contact">Contact Me</button>
 
                     <div class="social-links">
                         @for (link of socialLinks; track link.name) {
@@ -120,26 +119,28 @@
 
 
 
-<section class="experience-section" id="experience" appScrollReveal>
+<section class="experience-section" id="experience">
     <div class="experience-container">
-        <h1>Experiences</h1>
+        <h1>Experience</h1>
         <div class="experience-grid">
             @for (exp of experiences; track exp.company) {
-            <div class="experience-card">
-                <div class="card-header">
-                    <div class="company-logo">
-                        <img src="../../../assets/Image/autovyn logo.png" [alt]="exp.company">
-                    </div>
-                    <div class="company-info">
-                        <h2>{{ exp.role }}</h2>
-                        <h3>{{ exp.company }}</h3>
-                    </div>
+            <a [href]="exp.url" target="_blank" class="experience-card">
+                <div class="company-logo">
+                    <img [src]="exp.logo" [alt]="exp.company">
                 </div>
-                <div class="card-body">
+                <div class="experience-info">
+                    <h2 class="company-name">{{ exp.company }}</h2>
+                    <h3 class="role">{{ exp.role }}</h3>
                     <p class="period">{{ exp.period }}</p>
                     <p class="description">{{ exp.description }}</p>
                 </div>
-            </div>
+                <div class="external-link-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                    </svg>
+                </div>
+            </a>
             }
         </div>
     </div>

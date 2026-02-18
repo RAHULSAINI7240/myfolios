@@ -78,10 +78,11 @@ export class Home implements AfterViewInit {
   experiences = [
     {
       company: 'Autovyn Consectation PVT LTD',
-      role: 'Software Developer', // Assuming role based on previous inputs, or generic
+      role: 'Software Developer',
       period: 'Nov 2024 - Present',
-      description: 'Software Company',
-      logo: 'https://via.placeholder.com/100x100?text=Autovyn' // Placeholder
+      description: 'Worked on enterprise-level web applications and dashboard reporting systems.',
+      logo: 'assets/Image/autovyn logo.png',
+      url: 'https://autovyn.in/'
     }
   ];
 
