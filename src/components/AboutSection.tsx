@@ -100,15 +100,15 @@ const AboutSection = () => {
                         {[
                           {
                             label: 'Languages',
-                            items: ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+                            items: ['HTML', 'CSS', 'JavaScript', 'SQL', 'React'],
                           },
                           {
                             label: 'Frameworks & Libraries',
-                            items: ['React', 'Tailwind', 'Pandas', 'NumPy', 'Scikit-learn', 'NLTK'],
+                            items: ['React', 'Angular', 'Tailwind', 'Bootstrap', '.NET '],
                           },
                           {
                             label: 'Tools & Platforms',
-                            items: ['Figma', 'Vercel', 'Git', 'GitHub', 'Power BI', 'Canva', 'Excel'],
+                            items: ['Git', 'GitHub', 'Figma', 'Canva', 'Vercel'],
                           },
                           {
                             label: 'AI & GenAI',

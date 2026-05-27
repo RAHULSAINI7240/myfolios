@@ -36,7 +36,7 @@ const PROJECTS: ProjectData[] = [
     number: '03',
     category: 'Personal · GenAI',
     name: 'ResumeIQ',
-    liveUrl: 'https://resumeiq-harsh.vercel.app/',
+    liveUrl: 'https://resumeiq-rahul.vercel.app/',
     col1Image1: '/resumeiq-hero.png',
     col1Image2: '/resumeiq-feedback.png',
     col2Image: '/resumeiq-score.png',
